@@ -1,0 +1,81 @@
+-----------------------------
+-- 基础类型
+-----------------------------
+--布尔值
+boolean b
+
+--数字
+number n
+
+--字符串
+string s
+
+--表
+--可以自由添加删除属性，不会对内部属性进行类型检测
+--其内部读取的值，函数的返回值都会被认作any类型
+table t
+
+--自定义类型
+--可以通过声明一个Class文件来自定义类型
+ClassABC abc
+
+--函数指针
+--关键字function<返回值类型...[,返回值类型],参数类型...[,参数类型]>
+function<void:number,string> f
+
+--任意类型
+--可以接受任意类型值
+--any.varablexxx,any.funcxxx() 可以强制忽略类型检测，读取、调用返回的值亦被认为是any类型
+any x
+
+--void,
+--当函数返回值被声明为void时表示该函数不返回任何值
+
+--nil
+--空值/未被初始化的值
+--除了void外，所有类型都可以被指定为nil
+
+--数组
+table<number> numbers
+
+--字典
+table<string,number> numberMap
+
+-----------------------------
+-- 类型转换
+-----------------------------
+
+--any可以转换成任意类型，亦可接受任意类型
+any x1 = false
+any x2 = {}
+any x3 = 18
+any x4 = new ClassABC()
+
+ClassABC abc = x1 as ClassABC
+boolean abc = x1 as ClassABC
+
+--table可以转换为任意类对象，亦可接受任意类对象
+table x1 = new ClassABC()
+table x2 = new ClassXYZ()
+
+ClassABC a = x1 as ClassABC
+
+--存在继承关系的对象，父类可以接受子类对象，子类可以转换为父类对象
+class ClassABC
+class ClassABCX extends ClassABC
+
+ClassABC a = new ClassABCX()
+ClassABCX x = new ClassABCX()
+
+a = x as ClassABC
+
+-----------------------------
+-- 类型读取
+-- test
+-----------------------------
+
+--通过关键字'typeof'读取实际类型
+any x1 = false
+ClassABC a = new ClassABCX()
+print(type(x1)) --输出boolean
+print(type(a)) --输出ClassABCX

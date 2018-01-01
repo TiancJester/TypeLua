@@ -1,0 +1,49 @@
+-----------------------------
+-- 和Lua交互
+-----------------------------
+
+--引用原生table模块
+using utf8 = libs.luasystem.utf8
+--加载全局模块
+using libs.3rd.cjson
+
+class CrossLua
+
+--读取/设置全局值,调用全局函数
+void LetUsCallLuaGlobal()
+    --读取全局字符串gs
+    string x = any.gs as string
+    --设置全局字符串gs
+    any.gs = "set it"
+    --调用全局方法delay
+    any.delay(10)
+    --读取全局table，并调用其函数
+    any.cjson.decode()
+end
+
+--调用Lua模块
+void LetUsCallLuaModule()
+    utf8.len("try it")
+end
+
+-----------------------------
+-- table
+-----------------------------
+
+--使用table
+--声明table，并赋值，此时{}内的所有内容将会被认为是Lua代码
+--table类型可以动态赋予新的属性,table内的所有属性都被认为是any类型
+void LetUsUseDynamicTable()
+    table t = {
+	entry = function(d)
+            local ex = 99
+            local c = {}
+            local function testfun()
+                print(ex+d)
+            end
+            testfun()
+	end,
+    }
+    t.d = 1
+    t.entry(t.d)
+end

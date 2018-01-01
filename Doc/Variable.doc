@@ -1,0 +1,26 @@
+-----------------------------
+-- 变量声明
+-----------------------------
+
+--成员变量
+class ClassABC
+number a
+
+--静态变量
+class ClassABC
+static number a
+
+--全局变量
+class ClassABC
+global number a
+
+--声明并赋予初始值
+class ClassABC
+number a = 10
+
+--方法内部的变量以及作用域
+--禁止与上级区块有同名变量，gloabl>class>function block
+class ClassABC
+void f()
+    number a = 10
+end

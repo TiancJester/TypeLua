@@ -1,0 +1,95 @@
+-----------------------------
+-- 词法
+-----------------------------
+NUMBERVALUE     [0-9]*[.]?[0-9]*
+BOOLEANVALUE    false|true
+STRINGVALUE     ["].*["]
+
+NUMBER          number
+BOOLEAN         boolean
+STRING          string
+VOID            void
+ANY             any
+TABLE           table
+FUNCTION        function
+NIL             nil
+ID              [A-Za-z_][A-Za-z0-9_]*
+
+CLASS           class
+USING           using
+EXTENDS         extends
+NAMESPACE       namespace
+AS              as
+STATIC          static
+GLOBAL          global
+EXTERN          extern
+THIS            this
+SUPER           super
+NEW             new
+
+ASSIGN          [=]
+REL             [>]|[>][=]|[<]|[<][=]|[=][=]|[~][=]
+ARI             [+]|[-]|[*]|[/]|[%]
+JOINT           [.][.]
+AND             and
+OR              or
+NOT             not
+DOT             [.]
+
+IF              if
+THEN            then
+ELSE            else
+ELSEIF          elseif
+WHILE           while
+DO              do
+FOR             for
+REPEAT          repeat
+UNTIL           until
+PAIRS           pairs
+IPAIRS          ipairs
+
+END             end
+COLON           :
+RETURN          return
+LP              \(
+RP              \)
+LB              \[
+RB              \]
+LC              \{
+RC              \}
+LA              \<
+RA              \>
+SEMI            [;]
+COMMA           [,]
+
+COMMENT         [-][-]
+
+
+
+-----------------------------
+-- 保留关键字
+-----------------------------
+
+public
+private
+protected
+readonly
+abstract
+import
+require
+Enum
+Interfaces
+self
+int
+|
+&
+^
+<<
+>>
+++
+--
++=
+-=
+*=
+/=
+*=

@@ -1,0 +1,64 @@
+-----------------------------
+-- 流程控制
+-----------------------------
+
+class ClassABC
+
+--条件分支
+void TestCondition()
+    boolean b1 = true
+    boolean b2 = true
+    
+    --if then结构
+    if b1 then
+        print("b1 is true")
+    end
+    
+    --if then else结构
+    if b1 then
+        print("b1 is true")
+    else
+        print("b1 is false")
+    end
+    
+    --if嵌套结构
+    if b1 then
+        print("b1 is true")
+    elseif b2 then
+        print("b2 is true")
+    else
+        print("nothing true")
+    end
+end
+
+--循环
+void TestLoop()
+    boolean b1 = true
+    number n1 = 1
+    table<string> st = {"aaa","bbb"}
+    table<string,number> st = {aaa = 1,bbb = 2}
+    
+    --while do循环
+    while(n1 >= 10)
+    do
+       n1 = n1 + 1
+    end
+
+    --repeat until循环
+    repeat
+       n1 = n1 + 1
+    until n1 > 10
+
+    --数值for循环,循环变量，边界值，可缺省的步距
+    for i = 1,10 do
+        print(i)
+    end
+    for i = 1,10,2 do
+        print(i)
+    end
+
+    --泛型for in循环,用于枚举数组/键值对类型
+    for i,v in a do
+        print(i,v)
+    end
+end

@@ -1,0 +1,57 @@
+-----------------------------
+-- 函数声明
+-----------------------------
+
+--成员函数
+class ClassABC
+void FunctionA()
+end
+string FunctionB()
+    return nil
+end
+void FunctionC(string s,number n)
+end
+string,number FunctionD()
+    return nil,nil
+end
+
+--静态函数
+class ClassABC
+static void FunctionA()
+end
+
+--全局函数
+class ClassABC
+global void FunctionA()
+end
+
+--关键字'extern'
+--当一个函数是从外部注入的，则可以在函数定义前加入extern而无需实现该函数
+class ClassABC
+extern global void FunctionA()
+
+--剩余参数
+--当参数个数不确定时，可以使用剩余参数，该参数只能在参数声明的最后
+class ClassABC
+void FunctionA(number a,string ...s)
+end
+
+--函数指针/匿名函数
+class ClassABC
+function<string:string> fa
+void FunctionX(function<void:void> f)
+end
+void FunctionA()
+    function<void:void> f = ()
+    end
+    FunctionX(f)
+end
+void FunctionB()
+    FunctionX(()
+    end)
+end
+void FunctionC()
+    fa = function(string s)
+        return s
+    end
+end

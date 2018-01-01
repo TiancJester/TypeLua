@@ -1,0 +1,93 @@
+chunk -> namespaceblock classblock
+
+;命名空间区块
+namespaceblock -> namespace namespacename {usingnamespace}
+
+;引用命名空间
+usingnamespace -> namespacename | Name `=` namespacename [as Name]
+
+;命名空间名字
+namespacename -> Name {`.` Name}
+
+;类定义区块
+classblock -> [extern] class Name [extends Name] {classmember}
+
+;类成员
+classmember -> classfields | classfuncs
+
+;类字段
+classfields -> [static | global] vardecexp
+
+;类函数
+classfuncs -> [static | extern global] funcdec
+
+;变量
+var -> Name | prefixexp `[` exp `]` | prefixexp `.` Name 
+
+;变量列表
+varlist -> var {',' var}
+
+;变量定义表达式
+vardecexp -> vardeclist ['=' explist]
+
+;函数定义
+funcdec -> funcsing funcbody
+
+;变量列表
+vardeclist -> type Name {',' Name}
+
+;类型
+type -> boolean | number | string | table | any | Name | function '<' [typelist ':'] [typelist] '>' | table '<' type '>' | table '<' type ',' type '>'
+
+;类型列表
+typelist -> type {',' type}
+
+;表达式列表
+explist-> exp {`,` exp}
+
+;函数签名
+funcsing -> [typelist | void] Name 
+
+;函数体
+funcbody -> '(' [parlist] ')' block end
+
+;参数列表
+parlist -> vardeclist [`,` Type `...` Name]
+
+;值表达式
+exp -> nil | false | true | Number | String | tableconstructor | prefixexp | funcbody | 
+         exp binop exp | unop exp 
+
+;lua表构造
+tableconstructor -> '{' luacode '}'
+
+;需要取值/运算的表达式
+prefixexp -> var | funccall | new Name '(' [varlist] ')' | prefixexp as type | `(` exp `)`
+
+;函数调用
+funccall -> prefixexp '(' [explist] ')'
+
+;代码块
+block -> {statement} [laststatement]
+
+;语句
+statement ->  
+        vardeclist `=` explist | 
+        funccall | 
+        if exp then block {elseif exp then block} [else block] end | 
+        while exp do block end | 
+        repeat block until exp | 
+        for Name `=` exp `,` exp [`,` exp] do block end | 
+        for [type] Name ',' [type] Name in exp do block end |
+        do block end
+
+;结束语句
+laststatement -> return [explist] | break
+
+;双目运算符
+binop -> `+` | `-` | `*` | `/` | `%` | `..` | 
+         `<` | `<=` | `>` | `>=` | `==` | `~=` | 
+         and | or
+
+;单目运算符
+unop -> `-` | not | `#`
