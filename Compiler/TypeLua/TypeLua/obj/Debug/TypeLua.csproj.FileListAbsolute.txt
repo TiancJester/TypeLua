@@ -1,0 +1,14 @@
+E:\Develop\TypeLua\Compiler\TestLan\TestLan\TypeLua\bin\Debug\TypeLua.dll
+E:\Develop\TypeLua\Compiler\TestLan\TestLan\TypeLua\bin\Debug\TypeLua.pdb
+E:\Develop\TypeLua\Compiler\TestLan\TestLan\TypeLua\bin\Debug\GOLD Engine.dll
+E:\Develop\TypeLua\Compiler\TestLan\TestLan\TypeLua\obj\Debug\TypeLua.csprojResolveAssemblyReference.cache
+E:\Develop\TypeLua\Compiler\TestLan\TestLan\TypeLua\obj\Debug\TypeLua.dll
+E:\Develop\TypeLua\Compiler\TestLan\TestLan\TypeLua\obj\Debug\TypeLua.pdb
+F:\TTypeLua\Compiler\TestLan\TestLan\TypeLua\bin\Debug\Config\grammar.egt
+F:\TTypeLua\Compiler\TestLan\TestLan\TypeLua\bin\Debug\TypeLua.dll
+F:\TTypeLua\Compiler\TestLan\TestLan\TypeLua\bin\Debug\TypeLua.pdb
+F:\TTypeLua\Compiler\TestLan\TestLan\TypeLua\bin\Debug\GOLD Engine.dll
+F:\TTypeLua\Compiler\TestLan\TestLan\TypeLua\obj\Debug\TypeLua.csprojResolveAssemblyReference.cache
+F:\TTypeLua\Compiler\TestLan\TestLan\TypeLua\obj\Debug\TypeLua.dll
+F:\TTypeLua\Compiler\TestLan\TestLan\TypeLua\obj\Debug\TypeLua.pdb
+E:\Develop\TypeLua\Compiler\TestLan\TestLan\TypeLua\bin\Debug\Config\grammar.egt

@@ -1,0 +1,36 @@
+package com.test;
+
+public class testclass
+
+table t = {
+	a = 115,
+	b = "",
+};
+
+global public number t2 = 999;
+
+public void FuncA()
+	
+end
+
+public number FuncB(string a)
+	bool a;
+	a = false;
+	if a then
+		print(a);
+	end
+	return 15;
+end
+
+public number,ClassA FuncC(string a,string b,ClassC ...c)
+	bool a;
+	a = false;
+	if a then
+		print(a);
+	end
+	return 15;
+end
+
+
+
+

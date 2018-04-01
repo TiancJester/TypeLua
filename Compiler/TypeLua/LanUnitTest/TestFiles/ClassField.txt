@@ -1,0 +1,67 @@
+package com.test;
+
+class testclass
+
+--static
+static number numField1;
+
+static number numField2=15743.21;
+
+static classA field2;
+
+--global
+global string strField3="str";
+
+global string strField4;
+
+--member
+classA field3;
+
+classA field4 = new classA();
+
+string strField2="str";
+
+string strField3= 'str';
+
+string strField4= ' str';
+
+string strField5= ' str ';
+
+string strField6= 'str ';
+
+string strField7= '    aaaaaaa ';
+
+boolean boolField1 = false;
+
+boolean boolField2 = true;
+
+boolean boolField3 = globaltable.abc;
+
+boolean boolField4 = globaltable.abcfunc();
+
+table tField = {};
+
+table tField2 = { 
+					f1 = 100,
+					f2 = 300,
+					f3 = function()
+						 end,
+				};
+
+any aField = 123456;
+
+function<void:string,classA> fField1;
+
+function<number:string,classA> fField2;
+
+function<string,number,number:void> fField3;
+
+function<void:void> fField4;
+
+ListTable<any> listField1;
+
+ListTable<number> listField2 = {};
+
+HashTable<string,boolean> hashField1;
+
+HashTable<string,classA> hashField1 = {};

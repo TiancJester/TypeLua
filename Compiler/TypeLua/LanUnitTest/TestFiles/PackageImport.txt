@@ -1,0 +1,7 @@
+package com.test;
+
+import com.abc.xyz;
+import cn;
+import aliasname = com.abc.xyz.classx;
+
+class testclass

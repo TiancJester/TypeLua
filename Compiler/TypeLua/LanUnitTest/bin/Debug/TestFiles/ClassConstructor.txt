@@ -1,0 +1,16 @@
+package com.test;
+
+class testclass
+
+--static ctor
+static testclass()
+end
+
+--class ctor
+testclass()
+	
+end
+
+testclass(number a)
+	
+end

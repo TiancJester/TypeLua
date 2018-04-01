@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8BBF2AEE-9A67-4C6A-9B68-45DE9D4FCF04}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TypeLua</RootNamespace>
+    <AssemblyName>TypeLua</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GOLD Engine, Version=5.0.4337.25397, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\GOLD Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Production\Addexp_Addexp_Minus_Multexp.cs" />
+    <Compile Include="Production\Addexp_Addexp_Plus_Multexp.cs" />
+    <Compile Include="Production\Addexp_Multexp.cs" />
+    <Compile Include="Production\Andexp_Andexp_And_Equalityexp.cs" />
+    <Compile Include="Production\Andexp_Equalityexp.cs" />
+    <Compile Include="Production\Argumentlist_.cs" />
+    <Compile Include="Production\Argumentlist_Explist.cs" />
+    <Compile Include="Production\Basis\Add_exp_basisproduction.cs" />
+    <Compile Include="Production\Basis\And_exp_basisproduction.cs" />
+    <Compile Include="Production\Basis\Argument_list_basisproduction.cs" />
+    <Compile Include="Production\Basis\Block_basisproduction.cs" />
+    <Compile Include="Production\Basis\Chunk_basisproduction.cs" />
+    <Compile Include="Production\Basis\Class_base_opt_basisproduction.cs" />
+    <Compile Include="Production\Basis\Class_block_basisproduction.cs" />
+    <Compile Include="Production\Basis\Class_ctor_basisproduction.cs" />
+    <Compile Include="Production\Basis\Class_extern_function_basisproduction.cs" />
+    <Compile Include="Production\Basis\Class_field_assignment_basisproduction.cs" />
+    <Compile Include="Production\Basis\Class_field_basisproduction.cs" />
+    <Compile Include="Production\Basis\Class_function_basisproduction.cs" />
+    <Compile Include="Production\Basis\Class_member_basisproduction.cs" />
+    <Compile Include="Production\Basis\Class_member_list_basisproduction.cs" />
+    <Compile Include="Production\Basis\Compare_exp_basisproduction.cs" />
+    <Compile Include="Production\Basis\Else_if_statement_basisproduction.cs" />
+    <Compile Include="Production\Basis\Else_if_statement_list_basisproduction.cs" />
+    <Compile Include="Production\Basis\Else_statement_basisproduction.cs" />
+    <Compile Include="Production\Basis\Emptyable_type_basisproduction.cs" />
+    <Compile Include="Production\Basis\Equality_exp_basisproduction.cs" />
+    <Compile Include="Production\Basis\Exp_basisproduction.cs" />
+    <Compile Include="Production\Basis\Exp_list_basisproduction.cs" />
+    <Compile Include="Production\Basis\For_step_statement_basisproduction.cs" />
+    <Compile Include="Production\Basis\Function_body_basisproduction.cs" />
+    <Compile Include="Production\Basis\Function_call_basisproduction.cs" />
+    <Compile Include="Production\Basis\Function_exp_basisproduction.cs" />
+    <Compile Include="Production\Basis\Import_dec_basisproduction.cs" />
+    <Compile Include="Production\Basis\Import_list_basisproduction.cs" />
+    <Compile Include="Production\Basis\Joint_exp_basisproduction.cs" />
+    <Compile Include="Production\Basis\Last_statement_basisproduction.cs" />
+    <Compile Include="Production\Basis\Modifier_basisproduction.cs" />
+    <Compile Include="Production\Basis\Modifier_list_basisproduction.cs" />
+    <Compile Include="Production\Basis\Mult_exp_basisproduction.cs" />
+    <Compile Include="Production\Basis\Object_exp_basisproduction.cs" />
+    <Compile Include="Production\Basis\Or_exp_basisproduction.cs" />
+    <Compile Include="Production\Basis\Package_block_basisproduction.cs" />
+    <Compile Include="Production\Basis\Package_dec_basisproduction.cs" />
+    <Compile Include="Production\Basis\Package_name_basisproduction.cs" />
+    <Compile Include="Production\Basis\Package_name_list_basisproduction.cs" />
+    <Compile Include="Production\Basis\Parameter_basisproduction.cs" />
+    <Compile Include="Production\Basis\Parameter_list_basisproduction.cs" />
+    <Compile Include="Production\Basis\Statement_basisproduction.cs" />
+    <Compile Include="Production\Basis\Statement_list_basisproduction.cs" />
+    <Compile Include="Production\Basis\Type_basisproduction.cs" />
+    <Compile Include="Production\Basis\Type_block_basisproduction.cs" />
+    <Compile Include="Production\Basis\Type_conversion_exp_basisproduction.cs" />
+    <Compile Include="Production\Basis\Type_list_basisproduction.cs" />
+    <Compile Include="Production\Basis\Unary_exp_basisproduction.cs" />
+    <Compile Include="Production\Basis\Value_exp_basisproduction.cs" />
+    <Compile Include="Production\Basis\Var_dec_basisproduction.cs" />
+    <Compile Include="Production\Basis\Var_exp_basisproduction.cs" />
+    <Compile Include="Production\Basis\Var_lvalue_basisproduction.cs" />
+    <Compile Include="Production\Basis\Var_lvalue_exp_basisproduction.cs" />
+    <Compile Include="Production\Basis\Var_lvalue_list_basisproduction.cs" />
+    <Compile Include="Production\Block_Statementlist_Laststatement.cs" />
+    <Compile Include="Production\Chunk_Packageblock_Typeblock.cs" />
+    <Compile Include="Production\Classbaseopt_.cs" />
+    <Compile Include="Production\Classbaseopt_Extends_Identifier.cs" />
+    <Compile Include="Production\Classblock_Modifierlist_Class_Identifier_Classbaseopt_Classmemberlist.cs" />
+    <Compile Include="Production\Classctor_Modifierlist_Identifier_Functionbody.cs" />
+    <Compile Include="Production\Classexternfunction_Modifierlist_Emptyabletype_Identifier_Lparen_Parameterlist_Rparen_Semi.cs" />
+    <Compile Include="Production\Classfieldassignment_.cs" />
+    <Compile Include="Production\Classfieldassignment_Eq_Exp.cs" />
+    <Compile Include="Production\Classfield_Modifierlist_Emptyabletype_Identifier_Classfieldassignment_Semi.cs" />
+    <Compile Include="Production\Classfunction_Modifierlist_Emptyabletype_Identifier_Functionbody.cs" />
+    <Compile Include="Production\Classmemberlist_.cs" />
+    <Compile Include="Production\Classmemberlist_Classmemberlist_Classmember.cs" />
+    <Compile Include="Production\Classmember_Classctor.cs" />
+    <Compile Include="Production\Classmember_Classexternfunction.cs" />
+    <Compile Include="Production\Classmember_Classfield.cs" />
+    <Compile Include="Production\Classmember_Classfunction.cs" />
+    <Compile Include="Production\Compareexp_Compareexp_Gteq_Typeconversionexp.cs" />
+    <Compile Include="Production\Compareexp_Compareexp_Gt_Typeconversionexp.cs" />
+    <Compile Include="Production\Compareexp_Compareexp_Lteq_Typeconversionexp.cs" />
+    <Compile Include="Production\Compareexp_Compareexp_Lt_Typeconversionexp.cs" />
+    <Compile Include="Production\Compareexp_Typeconversionexp.cs" />
+    <Compile Include="Production\Elseifstatementlist_.cs" />
+    <Compile Include="Production\Elseifstatementlist_Elseifstatementlist_Elseifstatement.cs" />
+    <Compile Include="Production\Elseifstatement_Elseif_Exp_Then_Block.cs" />
+    <Compile Include="Production\Elsestatement_.cs" />
+    <Compile Include="Production\Elsestatement_Else_Block.cs" />
+    <Compile Include="Production\Emptyabletype_Typelist.cs" />
+    <Compile Include="Production\Emptyabletype_Void.cs" />
+    <Compile Include="Production\Equalityexp_Compareexp.cs" />
+    <Compile Include="Production\Equalityexp_Equalityexp_Eqeq_Compareexp.cs" />
+    <Compile Include="Production\Equalityexp_Equalityexp_Tildeeq_Compareexp.cs" />
+    <Compile Include="Production\Explist_Exp.cs" />
+    <Compile Include="Production\Explist_Exp_Comma_Explist.cs" />
+    <Compile Include="Production\Exp_Orexp.cs" />
+    <Compile Include="Production\Forstepstatement_.cs" />
+    <Compile Include="Production\Forstepstatement_Comma_Exp.cs" />
+    <Compile Include="Production\Functionbody_Lparen_Parameterlist_Rparen_Block_End.cs" />
+    <Compile Include="Production\Functioncall_Objectexp_Lparen_Argumentlist_Rparen.cs" />
+    <Compile Include="Production\Functionexp_Functionbody.cs" />
+    <Compile Include="Production\Functionexp_Valueexp.cs" />
+    <Compile Include="Production\Importdec_Import_Identifier_Eq_Packagename_Semi.cs" />
+    <Compile Include="Production\Importdec_Import_Packagename_Semi.cs" />
+    <Compile Include="Production\Importlist_.cs" />
+    <Compile Include="Production\Importlist_Importlist_Importdec.cs" />
+    <Compile Include="Production\Jointexp_Jointexp_Dotdot_Unaryexp.cs" />
+    <Compile Include="Production\Jointexp_Unaryexp.cs" />
+    <Compile Include="Production\Laststatement_.cs" />
+    <Compile Include="Production\Laststatement_Break_Semi.cs" />
+    <Compile Include="Production\Laststatement_Return_Explist_Semi.cs" />
+    <Compile Include="Production\Laststatement_Return_Semi.cs" />
+    <Compile Include="Production\Modifierlist_.cs" />
+    <Compile Include="Production\Modifierlist_Modifier_Modifierlist.cs" />
+    <Compile Include="Production\Modifier_Extern.cs" />
+    <Compile Include="Production\Modifier_Global.cs" />
+    <Compile Include="Production\Modifier_Private.cs" />
+    <Compile Include="Production\Modifier_Protected.cs" />
+    <Compile Include="Production\Modifier_Public.cs" />
+    <Compile Include="Production\Modifier_Static.cs" />
+    <Compile Include="Production\Multexp_Jointexp.cs" />
+    <Compile Include="Production\Multexp_Multexp_Div_Jointexp.cs" />
+    <Compile Include="Production\Multexp_Multexp_Percent_Jointexp.cs" />
+    <Compile Include="Production\Multexp_Multexp_Times_Jointexp.cs" />
+    <Compile Include="Production\Objectexp_Any.cs" />
+    <Compile Include="Production\Objectexp_Functioncall.cs" />
+    <Compile Include="Production\Objectexp_Lparen_Exp_Rparen.cs" />
+    <Compile Include="Production\Objectexp_New_Identifier_Lparen_Argumentlist_Rparen.cs" />
+    <Compile Include="Production\Objectexp_String.cs" />
+    <Compile Include="Production\Objectexp_Super.cs" />
+    <Compile Include="Production\Objectexp_Table.cs" />
+    <Compile Include="Production\Objectexp_This.cs" />
+    <Compile Include="Production\Objectexp_Varexp.cs" />
+    <Compile Include="Production\Orexp_Andexp.cs" />
+    <Compile Include="Production\Orexp_Orexp_Or_Andexp.cs" />
+    <Compile Include="Production\Packageblock_Packagedec_Importlist.cs" />
+    <Compile Include="Production\Packagedec_Package_Packagename_Semi.cs" />
+    <Compile Include="Production\Packagenamelist_.cs" />
+    <Compile Include="Production\Packagenamelist_Packagenamelist_Member.cs" />
+    <Compile Include="Production\Packagename_Identifier_Packagenamelist.cs" />
+    <Compile Include="Production\Parameterlist_.cs" />
+    <Compile Include="Production\Parameterlist_Parameter.cs" />
+    <Compile Include="Production\Parameterlist_Parameterlist_Comma_Parameter.cs" />
+    <Compile Include="Production\Parameter_Type_Dotdotdot_Identifier.cs" />
+    <Compile Include="Production\Parameter_Type_Identifier.cs" />
+    <Compile Include="Production\Statementlist_.cs" />
+    <Compile Include="Production\Statementlist_Statementlist_Statement.cs" />
+    <Compile Include="Production\Statement_Do_Block_End.cs" />
+    <Compile Include="Production\Statement_For_Identifier_Comma_Identifier_In_Exp_Do_Block_End.cs" />
+    <Compile Include="Production\Statement_For_Identifier_Eq_Exp_Comma_Exp_Forstepstatement_Do_Block_End.cs" />
+    <Compile Include="Production\Statement_Functioncall_Semi.cs" />
+    <Compile Include="Production\Statement_If_Exp_Then_Block_Elseifstatementlist_Elsestatement_End.cs" />
+    <Compile Include="Production\Statement_Repeat_Block_Until_Lparen_Exp_Rparen.cs" />
+    <Compile Include="Production\Statement_Varlvalueexp_Semi.cs" />
+    <Compile Include="Production\Statement_While_Exp_Do_Block_End.cs" />
+    <Compile Include="Production\Typeblock_Classblock.cs" />
+    <Compile Include="Production\Typeconversionexp_Addexp.cs" />
+    <Compile Include="Production\Typeconversionexp_Typeconversionexp_As_Type.cs" />
+    <Compile Include="Production\Typelist_Type.cs" />
+    <Compile Include="Production\Typelist_Typelist_Comma_Type.cs" />
+    <Compile Include="Production\Type_Any.cs" />
+    <Compile Include="Production\Type_Boolean.cs" />
+    <Compile Include="Production\Type_Function_Lt_Emptyabletype_Colon_Emptyabletype_Gt.cs" />
+    <Compile Include="Production\Type_Hashtable_Lt_Type_Comma_Type_Gt.cs" />
+    <Compile Include="Production\Type_Identifier.cs" />
+    <Compile Include="Production\Type_Listtable_Lt_Type_Gt.cs" />
+    <Compile Include="Production\Type_Number.cs" />
+    <Compile Include="Production\Type_String.cs" />
+    <Compile Include="Production\Type_Table.cs" />
+    <Compile Include="Production\Unaryexp_Functionexp.cs" />
+    <Compile Include="Production\Unaryexp_Not_Unaryexp.cs" />
+    <Compile Include="Production\Unaryexp_Num_Unaryexp.cs" />
+    <Compile Include="Production\Valueexp_Booleanvalue.cs" />
+    <Compile Include="Production\Valueexp_Luatable.cs" />
+    <Compile Include="Production\Valueexp_Nil.cs" />
+    <Compile Include="Production\Valueexp_Numbervalue.cs" />
+    <Compile Include="Production\Valueexp_Objectexp.cs" />
+    <Compile Include="Production\Valueexp_Stringvalue.cs" />
+    <Compile Include="Production\Vardec_Type_Identifier.cs" />
+    <Compile Include="Production\Varexp_Identifier.cs" />
+    <Compile Include="Production\Varexp_Objectexp_Lbracket_Exp_Rbracket.cs" />
+    <Compile Include="Production\Varexp_Objectexp_Member.cs" />
+    <Compile Include="Production\Varlvalueexp_Varlvaluelist.cs" />
+    <Compile Include="Production\Varlvalueexp_Varlvaluelist_Eq_Explist.cs" />
+    <Compile Include="Production\Varlvaluelist_Varlvalue.cs" />
+    <Compile Include="Production\Varlvaluelist_Varlvaluelist_Comma_Varlvalue.cs" />
+    <Compile Include="Production\Varlvalue_Vardec.cs" />
+    <Compile Include="Production\Varlvalue_Varexp.cs" />
+    <Compile Include="GOLDBuilder\Production.cs" />
+    <Compile Include="GOLDBuilder\Token.cs" />
+    <Compile Include="Project\Element\IFunctionBody.cs" />
+    <Compile Include="Project\Generate\ClassGenerateHelper.cs" />
+    <Compile Include="Project\Types\AccessType.cs" />
+    <Compile Include="Project\Types\Class.cs" />
+    <Compile Include="Project\Types\ClassParser.cs" />
+    <Compile Include="Project\Types\IClassMember.cs" />
+    <Compile Include="Project\Types\Luafile.cs" />
+    <Compile Include="Project\Exception\UnknowTypeException.cs" />
+    <Compile Include="Project\Statement\Block.cs" />
+    <Compile Include="Project\Context.cs" />
+    <Compile Include="Project\ContextElement.cs" />
+    <Compile Include="Project\Element\ContextElementCategory.cs" />
+    <Compile Include="Project\Element\Field.cs" />
+    <Compile Include="Project\Element\Function.cs" />
+    <Compile Include="Project\IContext.cs" />
+    <Compile Include="Project\Statement\LoopBlockContext.cs" />
+    <Compile Include="Project\Element\Parameter.cs" />
+    <Compile Include="Project\Types\GenericityType.cs" />
+    <Compile Include="Project\Types\Type.cs" />
+    <Compile Include="Project\Types\TypeCategory.cs" />
+    <Compile Include="Project\Statement\Expression.cs" />
+    <Compile Include="Project\Element\Variable.cs" />
+    <Compile Include="Project\Exception\MissingReturnException.cs" />
+    <Compile Include="Project\Exception\FileParseException.cs" />
+    <Compile Include="Project\Exception\SyntaxException.cs" />
+    <Compile Include="Project\Statement\Global.cs" />
+    <Compile Include="Project\Package\PackagesContext.cs" />
+    <Compile Include="Project\Project.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GOLDBuilder\TypeLuaParser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GOLD Engine.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Config\grammar.egt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,14 @@
+package dpk1.dpk2.dpk3;
+
+class testclass
+
+void funcblock()
+	string s,number n,boolean b;
+	string s2;
+	any a2;
+	table t2;
+
+	s,n,b = any.func();
+	s,t2.n,b = any.func();
+	string ax,n,boolean b2 = any.func();
+end

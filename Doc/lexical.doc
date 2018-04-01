@@ -16,9 +16,9 @@ NIL             nil
 ID              [A-Za-z_][A-Za-z0-9_]*
 
 CLASS           class
-USING           using
+IMPORT          import
 EXTENDS         extends
-NAMESPACE       namespace
+PACKAGE         package
 AS              as
 STATIC          static
 GLOBAL          global
@@ -26,10 +26,12 @@ EXTERN          extern
 THIS            this
 SUPER           super
 NEW             new
+REP             [.][.][.]
 
 ASSIGN          [=]
 REL             [>]|[>][=]|[<]|[<][=]|[=][=]|[~][=]
 ARI             [+]|[-]|[*]|[/]|[%]
+COUNT           [#]
 JOINT           [.][.]
 AND             and
 OR              or
@@ -45,12 +47,12 @@ DO              do
 FOR             for
 REPEAT          repeat
 UNTIL           until
-PAIRS           pairs
-IPAIRS          ipairs
+IN              in
 
 END             end
 COLON           :
 RETURN          return
+BREAK           break
 LP              \(
 RP              \)
 LB              \[

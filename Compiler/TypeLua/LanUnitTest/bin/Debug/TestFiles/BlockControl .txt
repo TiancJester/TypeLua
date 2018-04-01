@@ -1,0 +1,85 @@
+package dpk1.dpk2.dpk3;
+
+class testclass
+
+void funcblock_if()
+	if true then
+		number a = 0;
+		a = a + 1;
+	end
+
+	if true then
+		number a = 0;
+		a = a + 1;
+	end
+
+	if true then
+
+	else
+
+	end
+
+	number n = 0;
+
+	if n == nil then
+		print("nil");
+	elseif n > 0 then
+		print(">0");
+	else
+		print("<=0");
+	end
+end
+
+
+void funcblock_while_do()
+	while false do
+	end
+
+	number n = 0;
+	while true do
+		n = n + 1;
+		if n > 10 then
+			break;
+		end
+	end
+
+	while n < 100 do
+		n = n + 1;
+	end
+end
+
+void funcblock_repeat_until()
+	repeat
+	until (false)
+
+	number n = 0;
+
+	repeat
+		n = n + 1;
+	until ( n < 100)
+end
+
+void funcblock_for_index()
+	for i = 1,10,1 do
+		print(i);
+	end
+end
+
+void funcblock_for_in()
+	ListTable<string> lt = {};
+	for i,v in lt do
+		print(i,v);
+	end
+
+	for k,v in any.gt["datas"] do
+		print(k,v);
+	end
+end
+
+void funcblock_do()
+	do
+	end
+	do
+		print("do block");
+	end
+end

@@ -1,0 +1,85 @@
+package dpk1.dpk2.dpk3;
+
+class testclass
+
+function<void:void> dfunc1 = ()
+end;
+
+function<string:void> dfunc2;
+
+classA aField;
+
+void func1()
+	
+end
+
+void func2(string s)
+	
+end
+
+void func3(string s,number n)
+	
+end
+
+number func4(string s,number n)
+	
+end
+
+number,classA func5(string s,number n)
+	
+end
+
+void func6(string ...s)
+	
+end
+
+void funcblock()
+	func1();
+	func2("aaa");
+	string s = "";
+	func2(s);
+	func3(s,11.2);
+	func3(s,11);
+	func3("12345",11);
+	func4("12345",11);
+	func6("a","b",s);
+
+	classA a;
+	number n1 = func4("12345",11);
+	number n2,a = func4("12345",11);
+	number n3,classA a2 = func4("12345",11);
+end
+
+void classcall()
+	aField.func();
+	aField.otherField.func();
+end
+
+void delegatecall()
+	dfunc1();
+	dfunc2();
+
+	function<string:function<void:number>> df;
+	df((number n)
+	end);
+
+	function<string:function<boolean:number,string>> df2;
+	df2((number n,string s)
+		return true;
+	end);
+end
+
+
+
+void typecall()
+	
+	table.sort();
+	
+	any.globalfunca();
+	any.globaltable.funca();
+	any.globaltable["funca"]();
+
+	any.globalfunca(123);
+	any.globaltable.funca(123);
+	any.globaltable["funca"](123,123);
+end

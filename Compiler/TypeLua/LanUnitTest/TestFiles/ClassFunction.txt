@@ -1,0 +1,198 @@
+package com.test;
+
+class testclass
+
+--static
+static void sfunc1()
+end
+
+static string sfunc2()
+end
+
+static classA sfunc3()
+end
+
+static string,number sfunc4()
+end
+
+static string,number,classA sfunc5()
+end
+
+static void sfunc1(string s)
+end
+
+static string sfunc2(string s)
+end
+
+static classA sfunc3(string s)
+end
+
+static string,number sfunc4(string s)
+end
+
+static string,number,classA sfunc5(string s)
+end
+
+static void sfunc1(string s,string s)
+end
+
+static string sfunc2(string s,string s)
+end
+
+static classA sfunc3(string s,string s)
+end
+
+static string,number sfunc4(string s,string s)
+end
+
+static string,number,classA sfunc5(string s,string s)
+end
+
+static void sfunc1(string s,string ...s)
+end
+
+static string sfunc2(string s,string ...s)
+end
+
+static classA sfunc3(string s,string ...s)
+end
+
+static string,number sfunc4(string s,string ...s)
+end
+
+static string,number,classA sfunc5(string s,string ...s)
+end
+
+--global
+global void gfunc1()
+end
+
+global string gfunc2()
+end
+
+global classA gfunc3()
+end
+
+global string,number gfunc4()
+end
+
+global string,number,classA gfunc5()
+end
+
+global void gfunc1(string s)
+end
+
+global string gfunc2(string s)
+end
+
+global classA gfunc3(string s)
+end
+
+global string,number gfunc4(string s)
+end
+
+global string,number,classA gfunc5(string s)
+end
+
+global void gfunc1(string s,string s)
+end
+
+global string gfunc2(string s,string s)
+end
+
+global classA gfunc3(string s,string s)
+end
+
+global string,number gfunc4(string s,string s)
+end
+
+global string,number,classA gfunc5(string s,string s)
+end
+
+global void gfunc1(string s,string ...s)
+end
+
+global string gfunc2(string s,string ...s)
+end
+
+global classA gfunc3(string s,string ...s)
+end
+
+global string,number gfunc4(string s,string ...s)
+end
+
+global string,number,classA gfunc5(string s,string ...s)
+end
+
+--member
+void mfunc1()
+end
+
+string mfunc2()
+end
+
+classA mfunc3()
+end
+
+string,number mfunc4()
+end
+
+string,number,classA mfunc5()
+end
+
+void mfunc1(string s)
+end
+
+string mfunc2(string s)
+end
+
+classA mfunc3(string s)
+end
+
+string,number mfunc4(string s)
+end
+
+string,number,classA mfunc5(string s)
+end
+
+void mfunc1(string s,string s)
+end
+
+string mfunc2(string s,string s)
+end
+
+classA mfunc3(string s,string s)
+end
+
+string,number mfunc4(string s,string s)
+end
+
+string,number,classA mfunc5(string s,string s)
+end
+
+void mfunc1(string s,string ...s)
+end
+
+string mfunc2(string s,string ...s)
+end
+
+classA mfunc3(string s,string ...s)
+end
+
+string,number mfunc4(string s,string ...s)
+end
+
+string,number,classA mfunc5(string s,string ...s)
+end
+
+string,number,classA mfunc5(function<classA,classB:void> s,string ...s)
+end
+
+--extern
+extern void efunc1();
+
+extern static void efunc2();
+
+extern string efunc3();
+
+extern static number efunc4(number a,any c);

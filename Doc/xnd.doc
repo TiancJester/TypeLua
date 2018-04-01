@@ -1,0 +1,104 @@
+[../../../../../../classtest/UnitTest/ClassFunction.tl]
+    [chunk]
+        [packageblock]
+            [packagedec]
+                [PACKAGE]PACKAGE:package
+                [packagename]
+                    [ID]ID:classtext
+                    [DOT]DOT:.
+                    [ID]ID:UnitTest
+        [typedecblock]
+            [classblock]
+                [CLASS]CLASS:class
+                [ID]ID:ClassFunction
+                [classmember]
+                    [classfuncs]
+                        [funcdec]
+                            [funcheader]
+                                [resulttype]
+                                    [typelist]
+                                        [type]
+                                            [STRING]STRING:string
+                                [ID]ID:GetNamesta
+                            [funcbody]
+                                [LP]LP:(
+                                [parlist]
+                                [RP]RP:)
+                                [block]
+                                [END]END:end
+
+this.xx()()[1]
+
+
+
+prefixexp -> var | funccall | new id '(' [varlist] ')' | '(' exp ')'
+var -> id | prefixexp '[' exp ']' | prefixexp '.' id | this | this '[' exp ']' | this '.' id | super
+
+prefixexp -> prefixexp '[' exp ']' @var | prefixexp '.' id @var | prefixexp '(' [explist] ')' @funccall |
+             this @var | this '[' exp ']' @var | this '.' id @var | super @var | 
+            new id '(' [varlist] ')' | '(' exp ')' | id
+
+prefixexp -> this px @var | this '[' exp ']' px @var | this '.' id px @var | super px @var | 
+            new id '(' [varlist] ')' px | '(' exp ')' | id px
+
+px -> '[' exp ']' px @var | '.' id px @var | '(' [explist] ')' px @funccall
+
+exp -> nil | booleanvalue | numbervalue | stringvalue | tableconstructor | prefixexp | funcbody | typeconversionexp |
+         exp binop exp | unop exp 
+
+exp -> nil exp2 | booleanvalue exp2 | numbervalue exp2 | stringvalue exp2 | tableconstructor exp2 | prefixexp exp2 | funcbody exp2 | typeconversionexp exp2 | 
+		unop exp exp2
+       
+exp2 -> [binop exp exp2]
+
+-----------------------------------------------
+new dd().xx[1]()
+
+var
+var
+funccall
+
+
+prefixexp
+	funccall-()
+		var-[]
+			var-.
+				prefixexp
+-----------------------------------------------
+
+prefixexp -> var | funccall | new id '(' [varlist] ')' | '(' exp ')'
+var -> id | prefixexp '[' exp ']' | prefixexp '.' id | this | this '[' exp ']' | this '.' id | super
+
+
+prefixexp -> id @var | prefixexp '[' exp ']' @var | prefixexp '.' id @var | this @var | this '[' exp ']' @var | this '.' id @var | super @var | 
+			prefixexp '(' [explist] ')' @funccall | new id '(' [varlist] ')' | '(' exp ')'
+
+
+prefixexp -> this @var p2 | this '[' exp ']' @var p2 | this '.' id @var p2 | super @var p2 | 
+			id @var p2 | new id '(' [varlist] ')' p2 | '(' exp ')' p2
+			
+p2 -> '[' exp ']' @var p2 | '.' id @var p2 | '(' [explist] ')' @funccall p2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
