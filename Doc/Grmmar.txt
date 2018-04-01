@@ -1,0 +1,313 @@
+"Name"    = 'TypeLua'
+"Author"  = 'Tianc'
+"Version" = '0.2' 
+"About"   = 'Fight for the lua'
+
+"Case Sensitive" = False 
+"Start Symbol"   = <chunk>
+
+! ----------------------------------------------------------------- Sets
+
+{String Ch 1}   = {Printable} - ['']
+{String Ch 2}   = {Printable} - ["]
+{Name Start Ch} = {Letter} + [_]
+{Name Body Ch}  = {AlphaNumeric} + [_]
+
+! ----------------------------------------------------------------- Terminals
+
+NumberValue     =   '-'?{Number}+('.'{Number}+)?
+BooleanValue    =   false|true
+StringValue     =   ''{String Ch 1}*''
+                    | '"'{String Ch 2}*'"'
+                 
+Identifier      =   {Name Start Ch}{Name Body Ch}* 
+Member          =   '.'{Name Start Ch}{Name Body Ch}* 
+
+LuaTable Start  =   '{'
+LuaTable End    =   '}'
+
+! ----------------------------------------------------------------- Comments
+
+Comment Start   =   '--[['
+Comment End     =   ']]--'
+Comment Line    =   '--'
+
+! ===========================================================================
+! Start Symbol
+! ===========================================================================
+
+<chunk> 
+    ::= <package block> <type block> 
+     
+! ===========================================================================
+! Type
+! ===========================================================================
+
+<type>
+    ::= boolean
+     |  number
+     |  string
+     |  table
+     |  any
+     |  Identifier
+     |  function '<' <emptyable type> ':' <emptyable type> '>'
+     |  ListTable '<' <type> '>' 
+     |  HashTable '<' <type> ',' <type> '>'
+
+<type list>
+    ::= <type>
+     |  <type list> ',' <type>
+     
+! ===========================================================================
+! Variable
+! ===========================================================================
+
+<var dec>
+    ::= <type> Identifier
+     
+<var lvalue>
+    ::= <var exp>
+     |  <var dec>
+     
+<var lvalue list>
+    ::= <var lvalue>
+     |  <var lvalue list> ',' <var lvalue>
+     
+<var lvalue exp>
+    ::= <var lvalue list> '=' <exp list>
+     |  <var lvalue list>
+
+! ===========================================================================
+! Expressions 
+! ===========================================================================
+
+<exp list>
+    ::= <exp>
+     |  <exp> ',' <exp list> 
+
+<exp>
+    ::= <or exp>
+
+<or exp>
+    ::= <or exp> 'or' <and exp>
+     |  <and exp>
+
+<and exp>
+    ::= <and exp> 'and' <equality exp>
+     |  <equality exp>
+
+<equality exp>  
+    ::= <equality exp> '==' <compare exp>
+     |  <equality exp> '~=' <compare exp>
+     |  <compare exp>
+     
+<compare exp>
+    ::= <compare exp> '<'  <type conversion exp>
+     |  <compare exp> '>'  <type conversion exp>
+     |  <compare exp> '<=' <type conversion exp>
+     |  <compare exp> '>=' <type conversion exp>
+     |  <type conversion exp>
+        
+<type conversion exp>
+    ::= <type conversion exp> as <type>
+     |  <add exp>
+
+<add exp>
+    ::= <add exp> '+' <mult exp>
+     |  <add exp> '-' <mult exp>
+     |  <mult exp>
+        
+<mult exp>
+    ::= <mult exp> '*' <joint exp>
+     |  <mult exp> '/' <joint exp> 
+     |  <mult exp> '%' <joint exp> 
+     |  <joint exp>  
+        
+<joint exp>
+    ::= <Joint Exp>'..' <unary exp>  
+     |  <unary exp>  
+
+<unary exp>  
+    ::= 'not'  <unary exp>
+     |  '#'  <unary exp>
+     |  <function exp>
+        
+<function exp>
+    ::= <function body>
+     |  <value exp>
+         
+<value exp>
+    ::= nil
+     |  LuaTable
+     |  NumberValue 
+     |  BooleanValue 
+     |  StringValue 
+     |  <object exp>
+
+<object exp>
+    ::= this
+     |  super
+     |  new Identifier '(' <argument list> ')'
+     |  <function call>
+     |  '(' <exp> ')' 
+     |  <var exp>
+     |  string
+     |  table
+     |  any
+        
+<var exp>
+    ::= <object exp> '[' <exp> ']'
+     |  <object exp>  Member
+     |  Identifier
+     
+
+! ===========================================================================
+! Package
+! ===========================================================================
+
+<package block> 
+    ::= <package dec> <import list>
+
+<package dec> 
+    ::= package <package name> ';'
+
+<import list> 
+    ::= <import list> <import dec>
+     |  !Nothing
+                      
+<import dec> 
+    ::= import Identifier '=' <package name> ';'
+     |  import <package name> ';'
+
+<package name> 
+    ::= Identifier <package name list>
+     
+<package name list> 
+    ::= <package name list> MEMBER
+     |  !Nothing
+     
+! ===========================================================================
+! Class
+! ===========================================================================
+
+<modifier list>
+    ::= <modifier> <modifier list>
+     |  !Nothing
+     
+<modifier>
+    ::= static
+     |  extern
+     |  global
+     |  public
+     |  private
+     |  protected
+     
+<type block> 
+    ::= <class block>
+     
+<class block>
+    ::= <modifier list> class Identifier <class base opt> <class member list>
+
+        
+<class base opt>
+    ::= extends Identifier
+     |  !Nothing
+
+<class member list>
+    ::= <class member list> <class member>
+     |  !Nothing
+     
+<class member>
+    ::= <class function>
+     |  <class extern function> 
+     |  <class field> 
+     |  <class ctor>
+     
+<class ctor>
+    ::= <modifier list> Identifier <function body>
+     
+<class function> 
+    ::= <modifier list> <emptyable type> Identifier <function body>
+     
+<class extern function> 
+    ::= <modifier list> <emptyable type> Identifier '(' <parameter list> ')' ';'
+     
+<class field> 
+    ::=  <modifier list> <emptyable type> Identifier <class field assignment> ';'
+     
+<class field assignment>
+    ::= '=' <exp>
+     |  !Nothing
+
+! ===========================================================================
+! Function
+! ===========================================================================
+
+<parameter>
+    ::= <type> Identifier
+     |  <type> '...' Identifier
+     
+<parameter list>
+    ::= <parameter>
+     |  <parameter list> ',' <parameter>
+     |  !Nothing
+     
+<argument list>
+    ::= <exp list>
+     |  !Nothing
+     
+<emptyable type>
+    ::= void
+     |  <type list>
+     
+<function body>
+    ::= '(' <parameter list> ')' <block> end
+     
+<function call>
+    ::= <object exp> '(' <argument list> ')'
+
+! ===========================================================================
+! statement
+! ===========================================================================
+
+<block>
+    ::= <statement list> <last statement>
+     
+<statement list>
+    ::= <statement list> <statement>
+     | !Nothing
+     
+<last statement>
+    ::= return <exp list> ';'
+     |  return ';'
+     |  break ';'
+     |  !Nothing
+     
+<statement>
+    ::= <function call> ';'
+     |  <var lvalue exp> ';'
+     |  if <exp> then <block> <else if statement list> <else statement> end
+     |  while <exp> do <block> end
+     |  repeat <block> until '(' <exp> ')'
+     |  for Identifier '=' <exp> ',' <exp> <for step statement> do <block> end
+     |  for Identifier ',' Identifier in <exp> do <block> end
+     |  do <block> end
+     
+<else if statement>
+    ::= elseif <exp> then <block>
+
+<else if statement list>
+    ::= <else if statement list> <else if statement>
+     | !Nothing
+     
+<else statement>
+    ::= else <block>
+     |  !Nothing
+     
+<for step statement>
+    ::= ',' <exp>
+     |  !Nothing
+
+
+
+

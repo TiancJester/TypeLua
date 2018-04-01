@@ -36,10 +36,10 @@ any x
 --除了void外，所有类型都可以被指定为nil
 
 --数组
-table<number> numbers
+ListTable<number> numbers
 
 --字典
-table<string,number> numberMap
+HashTable<string,number> numberMap
 
 -----------------------------
 -- 类型转换
@@ -68,14 +68,3 @@ ClassABC a = new ClassABCX()
 ClassABCX x = new ClassABCX()
 
 a = x as ClassABC
-
------------------------------
--- 类型读取
--- test
------------------------------
-
---通过关键字'typeof'读取实际类型
-any x1 = false
-ClassABC a = new ClassABCX()
-print(type(x1)) --输出boolean
-print(type(a)) --输出ClassABCX

@@ -3,9 +3,9 @@
 -----------------------------
 
 --引用原生table模块
-using utf8 = libs.luasystem.utf8
+import utf8 = libs.luasystem.utf8
 --加载全局模块
-using libs.3rd.cjson
+import libs.3rd.cjson
 
 class CrossLua
 

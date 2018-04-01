@@ -1,13 +1,13 @@
 -----------------------------
 -- 类型声明
 -----------------------------
-namespace classtest
+package classtest
 
 --class定义之前可以引用其他模块
---默认可以使用和本类相同命名空间下的所有类
-using Unity.GameObject                       --引用指定对象
-using BaseClass = classtest.ClassB           --起一个别名
-using NativeLuaTable = test.NativeLuaTable   --引用返回table的lua文件，NativeLuaTable被认为是any类型
+--默认可以使用和本类相同包名下的所有类型
+import Unity.GameObject                       --引用指定对象
+import BaseClass = classtest.ClassB           --起一个别名
+import NativeLuaTable = test.NativeLuaTable   --引用返回table的lua文件，NativeLuaTable被认为是any类型
 
 --使用关键字class定义一个新的类型
 --使用关键字extends实现类的继承
@@ -21,25 +21,25 @@ static ClassA()
 end
 
 --静态字段
-static number d
-static number e
+public static number d
+private static number e
 
 --静态函数
 --在类的内部可以直接引用本类的静态字段，亦可使用类名.字段名的方式引用
-static void SetNumber(number x)
+public static void SetNumber(number x)
     d = x
     ClassA.e = x
 end
 
 --成员变量定义
-number a
+public number a
 
-string b
+public string b
 
 --构造函数,在被实例化的时候调用
 --使用super关键字调用基类构造
 --在类的内部可以直接引用本对象的字段，亦可使用this.字段名的方式引用
-ClassA(number a, string b,string name)
+public ClassA(number a, string b,string name)
     this.a = a
     b = b
     super(name)
@@ -47,6 +47,6 @@ end
 
 --成员函数定义
 --使用super关键字调用基类被重写的函数
-string GetName()
+public string GetName()
     return tostring(a)..":"..super.GetName()
 end
